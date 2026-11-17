@@ -1,4 +1,4 @@
-﻿
+
 using tyuiu.cources.programming.interfaces.Sprint5;
 using System;
 using System.IO;
@@ -10,24 +10,22 @@ namespace Tyuiu.UsoltsevME.Sprint5.Task0.V22.Lib
     {
         public string SaveToFileTextData(int x)
         {
-            if (x == 0)
-            {
-                throw new ArgumentException("x не должен быть равен нулю");
-            }
-
             double result = Math.Pow(1 - x, 2) / (-3.0 * x);
 
             result = Math.Round(result, 3);
 
-            string path = Path.Combine(
+            string text = result.ToString("F3", CultureInfo.InvariantCulture);
+
+            string folder = Path.Combine(
                 Path.GetTempPath(),
-                "OutPutFileTask0.txt"
+                Guid.NewGuid().ToString()
             );
 
-            File.WriteAllText(
-                path,
-                result.ToString("F3", CultureInfo.InvariantCulture)
-            );
+            Directory.CreateDirectory(folder);
+
+            string path = Path.Combine(folder, "OutPutFileTask0.txt");
+
+            File.WriteAllText(path, text);
 
             return path;
         }
