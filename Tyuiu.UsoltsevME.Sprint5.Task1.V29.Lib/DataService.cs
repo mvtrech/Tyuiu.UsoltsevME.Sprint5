@@ -1,4 +1,4 @@
-﻿
+
 using tyuiu.cources.programming.interfaces.Sprint5;
 using System;
 using System.IO;
@@ -29,8 +29,7 @@ namespace Tyuiu.UsoltsevME.Sprint5.Task1.V29.Lib
                 value = Math.Round(value, 2);
 
                 result.AppendLine(
-                    "x = " + x + "; F(x) = " +
-                    value.ToString("F2", CultureInfo.InvariantCulture)
+                    value.ToString("0.##", new CultureInfo("ru-RU"))
                 );
 
                 if (x == stopValue)
