@@ -1,4 +1,4 @@
-﻿
+
 using tyuiu.cources.programming.interfaces.Sprint5;
 using System;
 using System.Globalization;
@@ -26,9 +26,8 @@ namespace Tyuiu.UsoltsevME.Sprint5.Task5.V15.Lib
                 double value = Convert.ToDouble(
                     number, CultureInfo.InvariantCulture);
 
-                double quotient = value / 5;
-
-                if (Math.Abs(quotient - Math.Round(quotient)) < 0.000000001)
+                if (value > 0 && Math.Abs(value / 5 -
+                    Math.Round(value / 5)) < 0.000000001)
                 {
                     if (value < min)
                     {
@@ -40,10 +39,11 @@ namespace Tyuiu.UsoltsevME.Sprint5.Task5.V15.Lib
 
             if (!found)
             {
-                throw new Exception("В файле нет чисел, которые делятся на 5.");
+                throw new Exception("Подходящие числа не найдены.");
             }
 
             return Math.Round(min, 3);
         }
     }
 }
+
