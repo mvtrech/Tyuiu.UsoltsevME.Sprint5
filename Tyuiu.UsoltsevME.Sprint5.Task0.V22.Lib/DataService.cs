@@ -14,7 +14,7 @@ namespace Tyuiu.UsoltsevME.Sprint5.Task0.V22.Lib
 
             result = Math.Round(result, 3);
 
-            string text = result.ToString("F3", CultureInfo.InvariantCulture);
+            string text = result.ToString("F3", new CultureInfo("ru-RU"));
 
             string folder = Path.Combine(
                 Path.GetTempPath(),
